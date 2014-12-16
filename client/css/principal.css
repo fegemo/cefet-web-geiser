@@ -1,0 +1,89 @@
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+#site {
+  background-color: #334;
+  box-shadow: 3px 0px 1px rgba(0,0,0,.3),
+             -3px 0px 1px rgba(0,0,0,.3);
+}
+
+.page-brand {
+  font-family: 'Sacramento', cursive;
+  color: white;
+  margin-right: 50px;
+}
+
+.page-brand a {
+  color: white;
+}
+
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#conteudo {
+  background-color: #bbc;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.player-card {
+  background-color: aliceblue;
+}
+
+.player-card-link-container {
+  display: inline-block;
+  margin-top: -2em;
+  float: right;
+}
+
+@media (min-width: 768px) {
+  .player-card .dl-horizontal dt,
+  .player-card-stacked .dl-horizontal dt {
+    width: 100px;
+  }
+
+  .player-card .dl-horizontal dd,
+  .player-card-stacked .dl-horizontal dd {
+    margin-left: 120px;
+  }
+}
+
+
+.player-card-stacked {
+  text-align: center;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 1px rgba(0,0,0,.3);
+}
+
+.player-card-stacked .media-body {
+  display: inline;
+}
+
+.player-card-stacked .media-body dd {
+  text-align: left;
+}
+
+.game-detailed-card.media {
+  background-color: lavender;
+  box-shadow: 2px 2px 1px rgba(0,0,0,.3);
+}
+
+.game-card {
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(0,0,0,.3);
+}
+
+.game-card:nth-child(2n) {
+  background-color: whitesmoke;
+}
+
+.most-5played-title {
+  color: white;
+}

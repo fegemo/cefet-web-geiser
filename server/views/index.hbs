@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Geiser Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel|Sacramento">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/principal.css">
+</head>
+<body>
+  <div class="container" id="site">
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1 class="page-brand"><a href="/">Geiser</a> <small> - seu computador a todo vapor</small></h1>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Inicial <span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Fim da barra de navegação -->
+
+    <div class="row" id="conteudo">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <ul class="media-list">
+          <!-- começa aqui as infos de um jogador -->
+          <li class="media player-card">
+            <!-- O número grande é um id de cada jogador que provém de jogadores.json, campo steamid -->
+            <a class="media-left media-middle" href="/jogador/76561198009353585/">
+              <!-- A URL da foto do jogador provem de jogadores.json, do campo avatarmedium -->
+              <img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ad/ad54ca6eab0beebbb107da9adce8fd894be54318_medium.jpg" class="avatar">
+            </a>
+            <div class="media-body">
+              <h3 class="media-heading">
+                <!-- O número grande é um id de cada jogador que provém de jogadores.json, campo steamid -->
+                <!-- O apelido do jogador provém de jogadores.json, campo personaname -->
+                <a href="/jogador/76561198009353585/">fegemo</a>
+              </h3>
+              <dl class="dl-horizontal">
+                <!-- O nome real do jogador provém de jogadores.json, campo realname -->
+                <dt>Nome real:</dt><dd>Flávio Coutinho</dd>
+                <!-- O país do jogador provém de jogadores.json, campo loccountrycode -->
+                <dt>País:</dt><dd>BR</dd>
+                <!-- A URL do perfil do jogador no Steam provém de jogadores.json, campo profileurl -->
+                <!-- O apelido do jogador provém de jogadores.json, campo personaname -->
+                <dt>Perfil no steam:</dt><dd><a href="http://steamcommunity.com/id/fegemo/">@fegemo</a></dd>
+              </dl>
+            </div>
+            <div class="player-card-link-container media-right media-bottom">
+              <!-- O número grande é um id de cada jogador que provém de jogadores.json, campo steamid -->
+              <a href="/jogador/76561198009353585/" class="player-card-link">
+                Veja detalhes
+              </a>
+            </div>
+          </li>
+          <!-- começa aqui as infos de um jogador -->
+          <li class="media player-card">
+            <a class="media-left media-middle" href="#">
+              <img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ad/6a37b087902f11ba7f7d2b13951be14796115e50_medium.jpg" class="avatar">
+            </a>
+            <div class="media-body">
+              <h3 class="media-heading"><a href="/user/76561198004439123/">Nukem</a></h3>
+              <dl class="dl-horizontal">
+                <dt>Nome real:</dt><dd>?</dd>
+                <dt>País:</dt><dd>US</dd>
+                <dt>Perfil no steam:</dt><dd><a href="http://steamcommunity.com/id/Nukem9/">@Nukem</a></dd>
+              </dl>
+            </div>
+            <div class="player-card-link-container media-right media-bottom">
+              <a href="/jogador/76561198009353585/" class="player-card-link">
+                Veja detalhes
+              </a>
+            </div>
+          </li>
+          <!-- começa aqui as infos de um jogador -->
+          <li class="media player-card">
+            <a class="media-left media-middle" href="#">
+              <img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ad/f1dd60a188883caf82d0cbfccfe6aba0af1732d4_medium.jpg" class="avatar">
+            </a>
+            <div class="media-body">
+              <h3 class="media-heading"><a href="/user/76561197960435530/">Robin</a></h3>
+              <dl class="dl-horizontal">
+                <dt>Nome real:</dt><dd>Robin Walker</dd>
+                <dt>País:</dt><dd>US</dd>
+                <dt>Perfil no steam:</dt><dd><a href="http://steamcommunity.com/id/robinwalker/">@Robin</a></dd>
+              </dl>
+            </div>
+            <div class="player-card-link-container media-right media-bottom">
+              <a href="/jogador/76561198009353585/" class="player-card-link">
+                Veja detalhes
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
