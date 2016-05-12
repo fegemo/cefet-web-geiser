@@ -35,26 +35,28 @@ body {
 
 .player-card {
   background-color: aliceblue;
+  padding: .5em 1.5em;
+  position: relative;
+  background-image: linear-gradient(to right, aliceblue 90%, #F38CFF 90%);
+}
+
+.player-card > .media-left,
+.player-card > .media-body {
+  display: inline-block;
 }
 
 .player-card-link-container {
   display: inline-block;
-  margin-top: -2em;
-  float: right;
+  position: absolute;
+  right: 0em;
+  bottom: 50%;
+  margin-bottom: -1em;
+  transform: rotate(-90deg);
 }
 
-@media (min-width: 768px) {
-  .player-card .dl-horizontal dt,
-  .player-card-stacked .dl-horizontal dt {
-    width: 100px;
-  }
-
-  .player-card .dl-horizontal dd,
-  .player-card-stacked .dl-horizontal dd {
-    margin-left: 120px;
-  }
+.player-card-link {
+  color: #690000;
 }
-
 
 .player-card-stacked {
   text-align: center;
@@ -66,13 +68,17 @@ body {
   display: inline;
 }
 
-.player-card-stacked .media-body dd {
-  text-align: left;
+.game-detailed-card {
+  overflow-x: hidden;
 }
 
 .game-detailed-card.media {
   background-color: lavender;
   box-shadow: 2px 2px 1px rgba(0,0,0,.3);
+}
+
+.game-detailed-card .dl-horizontal {
+  max-width: 495px;
 }
 
 .game-card {
@@ -86,4 +92,21 @@ body {
 
 .most-5played-title {
   color: white;
+}
+
+
+@media (min-width: 768px) {
+  .player-card .dl-horizontal dt,
+  .player-card-stacked .dl-horizontal dt {
+    width: 100px;
+  }
+
+  .player-card-stacked .media-body dd {
+    text-align: left;
+  }
+
+  .player-card .dl-horizontal dd,
+  .player-card-stacked .dl-horizontal dd {
+    margin-left: 120px;
+  }
 }
