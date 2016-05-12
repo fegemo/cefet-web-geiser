@@ -6,7 +6,7 @@ Um mostruário de algumas pessoas que ficam fritando seus PCs. Há uma página q
 
 Você deve criar duas páginas dinâmicas usando Node.js e Express.js.
 
-### Exercício 0
+### Exercício 0: Configuração do Projeto
 
 Você deve criar um arquivo `package.json` para caracterizar a pasta como um pacote Node.js.
 
@@ -34,7 +34,7 @@ E, como o "código de entrada" do programa está nesse arquivo `app.js`, a aplic
 
 Contudo, repare que o arquivo `server/app.js` ainda não está fazendo nada de útil.
 
-### Exercício 1
+### Exercício 1: Arquivos Estáticos
 
 Você deve agora abrir um servidor na porta 3000, configurado para servir estaticamente todos os arquivos da pasta `client/`.
 
@@ -60,7 +60,7 @@ Agora, modifique o arquivo `server/app.js` para ativar um servidor estático
 
 **Para verificar** se o servidor estático está funcionando, acesse o endereço  http://localhost:3000/index.exemplo.html e veja se a página carregou devidamente.
 
-### Exercício 2
+### Exercício 2: Página Inicial
 
 Neste exercício você deve criar a página `views/index.hbs` de forma que os usuários mostrados nela sejam buscados a partir do arquivo `data/jogadores.json`.
 
@@ -86,6 +86,23 @@ Neste momento, você pode testar no navegador se a rota e a _view_ estão sendo 
 
 Findos esses últimos passos, a página inicial deve estar igual à página em [http://geiser.herokuapp.com](http://geiser.herokuapp.com).
 
-### Exercício 3
+### Exercício 3: Página do Jogador
 
-Vide slides: [16](http://fegemo.github.io/cefet-web/classes/ssn4/#16).
+Siga os mesmos passos da página inicial, mas agora para a página de detalhes de um jogador:
+
+- Rota: `/jogador/:numero_identificador/`, responde ao verbo `GET` apenas
+- _View_: renderizar `server/views/jogador.hbs`
+- Contexto de dados: vêm de 3 fontes diferentes
+  1. De `jogadores.json`
+  1. De `jogosPorJogador.json`
+  1. Calculados das outras duas fontes
+
+Veja nas imagens a seguir de onde vêm os dados para cada elemento da interface:
+
+![](docs/geiser-jogos1.png)
+![](docs/geiser-jogos1-json.png)
+![](docs/geiser-jogos2.png)
+![](docs/geiser-jogos2-json.png)
+
+
+Mais informações vide slides: [16](http://fegemo.github.io/cefet-web/classes/ssn4/#16).
