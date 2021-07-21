@@ -1,10 +1,12 @@
-# cefet-web-geiser
+# Geiser 💨
 
 Um mostruário de algumas pessoas que ficam fritando seus PCs. Há uma página que mostra essas pessoas e outra com detalhes sobre o que elas andam fazendo com seus computadores.
+
 
 ## Atividade
 
 Você deve criar duas páginas dinâmicas usando Node.js e Express.js.
+
 
 ### Exercício 0: Configuração do Projeto
 
@@ -16,13 +18,11 @@ Para tal, você pode pedir auxílio ao npm. Após clonar seu _fork_, abra o term
 $ npm init
 ```
 
-Nesse momento, o npm fará perguntas no termianl para alguns parâmetros descritivos do seu pacote. Ao digitar os valores e concluir a operação, um arquivo `package.json` terá surgido na pasta.
+Nesse momento, o npm fará perguntas no terminal para alguns parâmetros descritivos do seu pacote. Ao digitar os valores e concluir a operação, um arquivo `package.json` terá surgido na pasta.
 
-Depois, você deve instalar algumas dependências:
+Depois, você deve instalar a dependência do pacote `express`:
 
-1. express (`npm install express --save`)
-1. underscore (`npm install underscore --save`)
-1. hbs (`npm install hbs --save`) - para handlebars, mas pode ser qualquer outro _templating engine_ suportado pelo Express
+1. express (`npm install express`)
 
 **Para executar**, você pode digitar:
 
@@ -33,6 +33,7 @@ $ node server/app.js
 E, como o "código de entrada" do programa está nesse arquivo `app.js`, a aplicação será iniciada.
 
 Contudo, repare que o arquivo `server/app.js` ainda não está fazendo nada de útil.
+
 
 ### Exercício 1: Arquivos Estáticos
 
@@ -50,15 +51,18 @@ Agora, modifique o arquivo `server/app.js` para ativar um servidor estático
 
   - o servidor deve servir os arquivos da pasta `client/`
   - Passos:
+    1. Em `server/app.js`, importe o pacote `express`
+       - Você pode usar CommonJS ou ES6 Modules
+       - Para usar ES6 Modules, você pode renomear os arquivos para `.mjs` ou colocar uma propriedade no `package.json`: `"type": "module"` e continuar usando `.js` (aí todos os arquivos serão considerados módulos ES6)
     1. Use o _middleware_ (`app.use`) `express.static(CAMINHO_PARA_PASTA)`, especificando a pasta onde estão os arquivos estáticos
     1. "Abra" o servidor e deixe-o escutando (`app.listen`) na porta 3000
     1. Teste seu servidor executando:
        ```
-       $ node server/app
+       $ node server/app.js
        ```
-       - Repare que a extensão `.js` é opcional para o Node.js
 
 **Para verificar** se o servidor estático está funcionando, acesse o endereço  http://localhost:3000/index.exemplo.html e veja se a página carregou devidamente.
+
 
 ### Exercício 2: Página Inicial
 
@@ -66,11 +70,14 @@ Neste exercício você deve criar a página `views/index.hbs` de forma que os us
 
 1. Instalar o _templating engine_ como uma dependência (se já não tiver feito isto)
 1. [Configurar](http://expressjs.com/en/guide/using-template-engines.html) o _templating engine_
-1. Carregar o arquivo `data/jogadores.json` para um objeto Javascript
-   - Repare que já existe um objeto vazio na variável chamada `db` no arquivo `server/app.js`
+   - Em particular, você vai precisar definir `view engine` e `views` (caminho para pasta contendo suas _views_)
+1. Carregar o arquivo `data/jogadores.json` para um objeto JavaScript
+   - Repare que já existe um objeto vazio na variável `db` no arquivo `server/app.js`
    - Você pode carregar o arquivo de forma síncrona ou assíncrona usando o módulo _file system_ (fs)
    - Lembre-se de que o módulo _file system_ é da plataforma do Node.js, então **não é necessário instalá-lo**
-   - Note que ao carregar o arquivo via `fs.readFileSync(CAMINHO)` ou `fs.readFile(CAMINHO, CALLBACK)`, o que é retornado (na chamada síncrona) ou passado como 2º argumento (na chamada assíncrona) é uma **_string_ com o conteúdo do arquivo JSON**
+   - Há 3 opções para ler arquivos: `fs.readFileSync(CAMINHO)`, `fs.readFile(CAMINHO, CALLBACK)` e `await readFile(CAMINHO)` (este último caso você use `import { readFile } from 'fs/promises'`)
+   - Se for usar um `CAMINHO` relativo (super recomendado), entenda que ele é relativo ao _cwd_ (_current working directory_). Se você está executando `node server/app.js`, o _cwd_ é a raiz do projeto. Logo, se usar `data/jogadores.json` o arquivo não será encontrado...
+   - Ao carregar o arquivo, o que é retornado (na chamada síncrona), passado como 2º argumento (na chamada assíncrona) ou resolvido (na chamada com promessa) é uma **_string_ com o conteúdo do arquivo JSON**
    - Sendo assim, é necessário desserializar essa _string_ em um objeto Javascript usando `JSON.parse(STRING)`
 1. Criar uma rota do tipo `GET` ([`app.get(...)`](http://expressjs.com/starter/basic-routing.html)) para o caminho "/" (página inicial) que renderize ([`response.render(...)`](http://expressjs.com/en/4x/api.html#res.render)) a _view_ que está em `server/views/index.hbs` (ou outra extensão)
    - Repare que o argumento para a função `response.render(NOME, CONTEXTO_DE_DADOS)` é apenas o nome da _view_, sem a extensão nem a pasta
@@ -84,7 +91,7 @@ Neste momento, você pode testar no navegador se a rota e a _view_ estão sendo 
      1. [Expressões](http://handlebarsjs.com/#getting-started)
      1. [Block `each`](http://handlebarsjs.com/builtin_helpers.html#iteration), para iterar no _array players_
 
-Findos esses últimos passos, a página inicial deve estar igual à página em [http://geiser.herokuapp.com](http://geiser.herokuapp.com).
+
 
 ### Exercício 3: Página do Jogador
 
