@@ -113,3 +113,29 @@ Veja nas imagens a seguir de onde vêm os dados para cada elemento da interface:
 
 
 Mais informações vide slides: [16](http://fegemo.github.io/cefet-web/classes/ssn4/#16).
+
+
+### FAQ
+
+Quem quiser **colocar os seus próprios dados de uso do Steam** para a
+prática pode seguir os seguintes passos:
+
+1. Solicitar uma API key (como se fosse um usuário e senha) de acesso aqui:
+   [Obtaining a Steam Web API Key](http://steamcommunity.com/dev)
+1. Para montar o `server/data/jogadores.json`:
+   1. Vamos usar [a chamada GetPlayerSummaries da API](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29)
+   1. Fazer a seguinte chamada, no próprio navegador mesmo: [http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=SUA_API_KEY_AQUI&steamids=ID_DO_STEAM_DO_USUARIO1,ID_DO_USUARIO2,ID_DO_USUARIO3](http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=SUA_API_KEY_AQUI&steamids=ID_DO_STEAM_DO_USUARIO1,ID_DO_USUARIO2,ID_DO_USUARIO3) substituindo os valores
+      - Ela retorna um objeto com uma propriedade "response", que possui uma propriedade "players", que é um array de jogadores
+      - Repare que é possível solicitar a informação de mais de um usuário, separado por vírgula
+      - Você pode pegar apenas a sua informação, ou a de colegas (ou pegar a sua + dos amigos do professor - mostradas a seguir)
+      - Como achar um SteamID dado o nome de usuário? Faça uma busca em [steamid.io](https://steamid.io) e peque o campo steamID64 (número grandão)
+         - ID do professor: 76561198009353585
+         - ID do Isrárá (amigo do professor): 76561197989267556
+         - ID do Cris (amigo do professor): 76561198039780604
+         - ID do Elder Coutinho (irmão): 76561198033038395 
+   1. Retire essa propriedade `response` e deixe o arquivo como o `jogadores.json` que está no repositório (ou seja, só um objeto com a propriedade `players`).
+   1. Salvar isso como sendo o arquivo `server/data/jogadores.json`
+1. Para montar o `server/data/jogosPorJogador.json`:
+   1. Este vai ser mais artesanal. Vamos usar [a chamada GetOwnedGames](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetOwnedGames_.28v0001.29) que retorna todos os jogos comprados por um jogador e o tempo que ele passou jogando-os.
+   1. Faça uma chamada para a URL seguinte para cada usuário que existe no arquivo  server/data/jogadores.json: [http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=SUA_API_KEY&steamid=ID_DO_USUARIO&include_appinfo=1](http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=SUA_API_KEY&steamid=ID_DO_USUARIO&include_appinfo=1)
+   1. O arquivo  `server/data/jogosPorJogador.json` deve conter um objeto que contém uma propriedade com o ID do usuário para cada usuário. O valor dessa propriedade deve ser o conteúdo da "response" retornada em cada chamada que foi feita para GetOwnedGames (veja como deve ficar o arquivo no final)
