@@ -112,6 +112,8 @@ Veja nas imagens a seguir de onde vêm os dados para cada elemento da interface:
 ![](docs/geiser-jogos2-json.png)
 
 
+Obs: para definir a URL das imagens dos jogos, você deve usar o seguinte formato: http://media.steampowered.com/steamcommunity/public/images/apps/**ID_DO_JOGO**/**CAMPO_img_logo_url**.jpg, substituindo **ID_DO_JOGO** pelo `appid` e **CAMPO_img_logo_url** por `img_logo_url` (não se esqueça do `.jpg` no final).
+
 Mais informações vide slides: [16](http://fegemo.github.io/cefet-web/classes/ssn4/#16).
 
 
